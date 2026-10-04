@@ -17,7 +17,7 @@ pids =
 # 起動したプロセスにメッセージを送る。
 Enum.each(pids, fn pid ->
   n = Enum.random(1..2000)
-  # {`:primes, 自身のpid、整数値}を送る。
+  # {`:primes`, 自身のpid、整数値}を送る。
   send(pid, {:primes, self(), n})
 end)
 
