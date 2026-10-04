@@ -1,4 +1,4 @@
-Code.require_file("sieve.ex", __DIR__)
+Code.require_file("../lib/sieve.exs", __DIR__)
 
 ExUnit.start()
 
