@@ -24,8 +24,8 @@ mise exec -- elixir main.exs
 mise exec -- elixir test/sieve_test.exs
 ```
 
-## フォーマットの確認
+## Lintの実行方法
 
 ```bash
-mise exec -- mix format --check-formatted lib/sieve.exs main.exs test/sieve_test.exs
+mise exec -- elixir scripts/lint.exs
 ```
