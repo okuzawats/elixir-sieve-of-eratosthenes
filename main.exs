@@ -14,10 +14,14 @@ pid =
 # 起動したプロセスにメッセージを送る。
 send(pid, {:primes, self(), 100})
 
-# mainが `:result` を受け取った時、標準出力する。
+# mainが `:result` を受け取った時、型が合えば標準出力する。
 receive do
-  {:result, primes} ->
-    Enum.each(primes, fn n -> IO.puts(n) end)
+  {:result, primes} when is_list(primes) ->
+    if Enum.all?(primes, fn x -> is_integer(x) end) do
+      IO.inspect(primes)
+    else
+      IO.puts(:stderr, "invalid type")
+    end
 after
   5000 ->
     IO.puts(:stderr, "timeout")
